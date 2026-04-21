@@ -52,3 +52,51 @@ public class Ex9_parallelSum {
         System.out.println("Total Sum = " + ParallelSum.totalSum);
     }
 }
+// Using Lamda Function
+// public class Ex9_parallelSumLambda {
+//     static long totalSum = 0;   // shared variable
+
+//     public static void main(String[] args) {
+//         java.util.Random random = new java.util.Random();
+//         int[] numbers = new int[10000];
+
+//         for (int i = 0; i < numbers.length; i++) {
+//             numbers[i] = random.nextInt(10000);
+//         }
+
+//         Thread[] threads = new Thread[10];
+//         int part = numbers.length / 10;
+
+//         // Create 10 threads using lambda
+//         for (int i = 0; i < 10; i++) {
+//             int start = i * part;
+//             int end = (i == 9) ? numbers.length : start + part;
+
+//             threads[i] = new Thread(() -> {
+//                 long localSum = 0;
+
+//                 for (int j = start; j < end; j++) {
+//                     localSum += numbers[j];
+//                 }
+
+//                 // synchronized block to update shared total
+//                 synchronized (Ex9_parallelSumLambda.class) {
+//                     totalSum += localSum;
+//                 }
+//             });
+
+//             threads[i].start();
+//         }
+
+//         // Wait for all threads
+//         for (int i = 0; i < 10; i++) {
+//             try {
+//                 threads[i].join();
+//             } catch (Exception e) {
+//                 e.printStackTrace();
+//             }
+//         }
+
+//         System.out.println("Total Sum = " + totalSum);
+//     }
+// }
