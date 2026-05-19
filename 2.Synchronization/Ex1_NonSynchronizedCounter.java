@@ -28,22 +28,22 @@ class ThreadCounterNoSync implements Runnable {
     public void run() {
         sharedCounter.count();
     }
-    public static void main(String[] args) {
-        SharedCounter sharedCounter = new SharedCounter();
-        sharedCounter.count();
-        System.out.println(sharedCounter.get());
-    }
+    // public static void main(String[] args) {
+    //     SharedCounter sharedCounter = new SharedCounter();
+    //     sharedCounter.count();
+    //     System.out.println(sharedCounter.get());
+    // }
 }
 
 public class Ex1_NonSynchronizedCounter {
     public static void main(String[] args) {
         SharedCounter sharedCounter = new SharedCounter();
         ThreadCounterNoSync ob1 = new ThreadCounterNoSync(sharedCounter, "T1");
-        //  try {
-        //     ob1.t.join();
-        // } catch (Exception e) {
-        //     System.out.println(e);
-        // }
+         try {
+            ob1.t.join();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
         ThreadCounterNoSync ob2 = new ThreadCounterNoSync(sharedCounter, "T1");
         //ThreadCounterNoSync ob3 = new ThreadCounterNoSync(sharedCounter, "T1");
         try {

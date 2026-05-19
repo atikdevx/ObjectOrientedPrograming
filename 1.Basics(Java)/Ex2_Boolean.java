@@ -4,7 +4,10 @@ public class Ex2_Boolean {
     public static void main(String args[]) {
 
         int a = 10;
-
+        String s[]=new String[5];
+        s[0]="Rahul";
+        s[1]=new String("Is");
+        s[2]=s[0]+s[1];
         if (a > 0) // boolean expression required
         {
             System.out.println("Inside If");
