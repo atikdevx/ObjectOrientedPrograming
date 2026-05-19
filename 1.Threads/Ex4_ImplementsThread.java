@@ -25,6 +25,9 @@ class NewThread1 implements Runnable {
 public class Ex4_ImplementsThread {
 
     public static void main(String[] args) throws Exception {
+        Thread t=new Thread(new NewThread1());
+        // Runnable r=new NewThread1();
+        //Thread t=new Thread(r);
         new NewThread1();
         for (int i = 10; i > 0; i--) {
             System.out.println("Main Thread: " + i);
