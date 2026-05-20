@@ -24,7 +24,9 @@ public class Server {
 
     private void serve(Socket clientSocket) throws IOException, ClassNotFoundException {
         clientCount++;
-        try (ObjectOutputStream oos = new ObjectOutputStream(clientSocket.getOutputStream()); ObjectInputStream ois = new ObjectInputStream(clientSocket.getInputStream())) {
+        try (
+            ObjectOutputStream oos = new ObjectOutputStream(clientSocket.getOutputStream()); 
+            ObjectInputStream ois = new ObjectInputStream(clientSocket.getInputStream())) {
             System.out.println(ois.readObject() + "," + clientCount);
             oos.writeObject("Hello Client : " + clientCount);
         }
